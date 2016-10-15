@@ -22,7 +22,6 @@ public class checkDigit
 		
 		
 	//is Palindrome iterative not using charAt
-	// NOT WORKING
 		System.out.println(isPalindromeNOAT("racecar"));	
 		System.out.println(isPalindromeNOAT("w"));	
 		System.out.println(isPalindromeNOAT("weeee"));	
@@ -38,6 +37,14 @@ public class checkDigit
 		System.out.println(isPalindromeREAT("121"));
 		System.out.println(isPalindromeREAT(""));		
 		System.out.println("--------------");
+		
+	//is Palindrome recursive not using charAt
+		System.out.println(isPalindromeRE("racecar"));
+		System.out.println(isPalindromeRE("w"));
+		System.out.println(isPalindromeRE("weeee"));
+		System.out.println(isPalindromeRE("121"));
+		System.out.println(isPalindromeRE(""));		
+		System.out.println("--------------");		
 
 	}	
 		
@@ -92,21 +99,7 @@ public class checkDigit
 				return true;
 				
 			return s.equals(new StringBuilder(s).reverse().toString());			
-			
-// 			int i = 0;
-// 			int n = s.length() - 1;
-// 			
-// 			while (n > i)
-// 			{	
-// 			
-// 			}
-			
-		
-		}
-		
-		
-		
-				
+		}		
 		
 		/** 
 		* This method takes in a String and returns true if the given String is a palindrome.
@@ -129,7 +122,24 @@ public class checkDigit
 			String r = s.substring(1, (s.length() - 1));	
 			return isPalindromeREAT(r);
 		}
-
-
+		
+		
+		/** 
+		* This method takes in a String and returns true if the given String is a palindrome.
+		* each recursion moves towards the center of the word
+		* @param s the string to check whether it is a palindrome
+		* @return boolean true if palindrome, false otherwise
+		* Recursively with use of charAt
+		*/
+		public static boolean isPalindromeRE(String s)
+		{
+			if (s.length() <= 1)
+				return true;
+				
+			String r = s.substring(0, (s.length()));
+			//System.out.println(r);	
+			return isPalindromeREAT(r);		
+				
+		}
 
 }
