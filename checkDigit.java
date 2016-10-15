@@ -10,19 +10,9 @@ public class checkDigit
 		System.out.println(checkDigit("2"));
 		System.out.println(checkDigit(""));
 		System.out.println("--------------");
-	
-		
-	//is Palindrome iterative not using charAt
-		System.out.println(isPalindromeNOAT("racecar"));	
-		System.out.println(isPalindromeNOAT("w"));	
-		System.out.println(isPalindromeNOAT("weeee"));	
-		System.out.println(isPalindromeNOAT("121"));	
-		System.out.println(isPalindromeNOAT(""));	
-		System.out.println("--------------");
-		
+
 		
 	//is Palindrome iterative using charAt
-	// NOT WORKING
 		System.out.println(isPalindromeITAT("racecar"));	
 		System.out.println(isPalindromeITAT("w"));	
 		System.out.println(isPalindromeITAT("weeee"));	
@@ -31,6 +21,15 @@ public class checkDigit
 		System.out.println("--------------");
 		
 		
+	//is Palindrome iterative not using charAt
+	// NOT WORKING
+		System.out.println(isPalindromeNOAT("racecar"));	
+		System.out.println(isPalindromeNOAT("w"));	
+		System.out.println(isPalindromeNOAT("weeee"));	
+		System.out.println(isPalindromeNOAT("121"));	
+		System.out.println(isPalindromeNOAT(""));	
+		System.out.println("--------------");
+				
 		
 	//is Palindrome recursive and uses charAt
 		System.out.println(isPalindromeREAT("racecar"));
@@ -70,9 +69,8 @@ public class checkDigit
 		* ITTERATIVELY WITH CHARAT
 		*/
 
-		public static boolean isPalindromeNOAT(String s)
+		public static boolean isPalindromeITAT(String s)
 		{
-			
 			if (s.length() <= 1)
 				return true;		
 			
@@ -86,7 +84,29 @@ public class checkDigit
   				}
   				return true;
 			}	
-		}		
+		}
+		
+		public static boolean isPalindromeNOAT(String s)
+		{
+			if (s.length() <= 1)
+				return true;
+				
+			return s.equals(new StringBuilder(s).reverse().toString());			
+			
+// 			int i = 0;
+// 			int n = s.length() - 1;
+// 			
+// 			while (n > i)
+// 			{	
+// 			
+// 			}
+			
+		
+		}
+		
+		
+		
+				
 		
 		/** 
 		* This method takes in a String and returns true if the given String is a palindrome.
