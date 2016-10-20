@@ -2,15 +2,17 @@ public class stringMethods
 {
 	public static void main(String[] args)
 	{
+		
 		System.out.println(findString("racecar", "car", 0));
 		System.out.println(findString("abcabcdabc", "abc", 2));
 		System.out.println(findString("abcd", "ef", 1));
+		System.out.println("------------------");
 
 		System.out.println(countStrings("racecar", "car"));
 		System.out.println(countStrings("abcabcdabc", "abc"));
 		System.out.println(countStrings("abcd", "ef"));
-
-
+		System.out.println(countStrings("", ""));
+		System.out.println(countStrings("hello", ""));
 
 	}
 
@@ -29,7 +31,7 @@ public class stringMethods
 	{  /* To be implemented in part a) */ 
 
 	String sub = o.substring(start, o.length());
-	System.out.println(sub);
+	//System.out.println(sub);
 	if (sub.indexOf(s) > -1)
 		return sub.indexOf(s) + start;	
 	else
@@ -48,26 +50,22 @@ public class stringMethods
 	public static int countStrings (String o, String s)
 	{  /* To be implemented in part b) */ 
 
-		if (findString(o, s, 0) >= 0)
+		int count = 0;
+		if (s.length() < 1)
+			return count;
+		while (findString(o, s, 0) >= 0)
 		{
-			for (int i = 0; i < o.length()/s.length(); i ++)
-			{	
-				int count = 0;
-				String sub = o.substring(o.indexOf(s) + s.length());
-				if (findString(o, s, 0) >= 0)
-					count ++;
+			count ++;
+			o = o.substring(o.indexOf(s) + s.length());
+				
 					
-			System.out.println(count);
-			System.out.println(i);
+					
+			//System.out.println(count);
+			//System.out.println(i);
 			
-			}	
+		}	
 		return count;
-
-		}
-		else
-			return 0;
 		
-	
 	}
 
 
